@@ -1,0 +1,160 @@
+.header-conatiner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 200px;
+}
+
+.header-conatiner.active {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 200px;
+  background-color: #7b7b7e;
+}
+
+.logo {
+  max-height: 100px;
+  min-height: 50px;
+  max-width: 100px;
+  min-width: 50px;
+}
+
+.change {
+  background-color: #7b7b7e;
+}
+
+.nav-items {
+  font-size: 1.4rem;
+  color: #7b7b7e;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.nav-items:hover {
+  color: #525252;
+}
+
+@media screen and (max-width: 768px) {
+  .collapse {
+    background-color: aliceblue;
+    border-radius: 9px;
+  }
+}
+
+.footer {
+  height: 100px;
+  background-color: #f5f5f7;
+  margin-top: 40px;
+}
+
+.footer-container {
+  width: 100%;
+  background-color: #f5f5f7;
+}
+
+.image-footer {
+  display: flex;
+  align-content: center;
+  height: 100%;
+}
+
+.my_image-about {
+  width: 80%;
+  height: auto;
+  border-radius: 9px;
+}
+
+.cool {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+}
+
+.my_image {
+  width: 100%;
+  max-width: 800px;
+  min-width: 300px;
+  height: auto;
+}
+
+.home-me {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-button {
+  margin-left: 5px;
+  margin-bottom: 15px;
+}
+
+.karan-1 {
+  margin-bottom: 40px;
+}
+
+.my_image-about {
+  width: 80%;
+  height: auto;
+  border-radius: 9px;
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+}
+
+.nocolor {
+  width: 100%;
+}
+
+/* .color-scroll {
+  background-color: black;
+  width: 100%;
+  transition: all 0.3s ease;
+  z-index: 10;
+} */
+.color-scroll {
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  color: #333333;
+  line-height: 20px;
+  margin: 0px 0px 20px;
+  padding: 10px 0px;
+
+  /* transition: all 0.3s ease; */
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+/* @keyframes down {
+  0% {
+    transform: translateX(-30%);
+  }
+  100% {
+    transform: translateY(50%);
+  }
+} */
+
+.fullscreen {
+  background-color: aqua;
+  height: 200vh;
+  width: 100%;
+}
