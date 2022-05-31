@@ -52,11 +52,11 @@ function Header() {
         <Navbar.Collapse id="responsive-navbar-nav" className="collapse">
           <Nav className="me-auto"></Nav>
           <Nav>
-            <Nav.Link href="#home">
+            {/* <Nav.Link href="#home">
               <a className="nav-items" aria-current="page" href="#home">
                 Home
               </a>
-            </Nav.Link>
+            </Nav.Link> */}
             <Nav.Link href="#about">
               <a className="nav-items" aria-current="page" href="#about">
                 About
