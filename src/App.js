@@ -1,41 +1,58 @@
-import logo from "./logo.svg";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Header from "./components/Header";
-import Home from "./components/Home";
-import Home2 from "./components/Home2";
-import About from "./components/About";
-import About2 from "./components/About2";
-import Skill from "./components/Skill";
-import Projects from "./components/Projects";
-import Project1 from "./components/Project1";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import Education from "./components/Education";
-import { Parallax } from "react-parallax";
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Hero from "./components/Hero";
 
-function App() {
+const App = () => {
+  const [images, setImages] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [search, setSearch] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const newImages = (direction) => {
+    if (direction === "next") {
+      setCurrentPage(currentPage + 1);
+      fetchNewData();
+    } else if (direction === "previous" && currentPage !== 1) {
+      setCurrentPage(currentPage - 1);
+      fetchNewData();
+    }
+  };
+
+  const fetchNewData = () => {
+    fetch(
+      `https://pixabay.com/api/?key=15665058-873edcd256724db8da5bb8198&q=${search}&image_type=photo&per_page=9&page=${currentPage}&pretty=true`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setImages(data.hits);
+        setIsLoading(false);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    fetch(
+      `https://pixabay.com/api/?key=15665058-873edcd256724db8da5bb8198&q=${search}&image_type=photo&per_page=9&page=${currentPage}&pretty=true`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setImages(data.hits);
+        setIsLoading(false);
+        setCurrentPage(currentPage + 1);
+      })
+      .catch((err) => console.log(err));
+  }, [search]);
+
   return (
-    <div>
-      <Header />
-      {/* <Home /> */}
-      <Home2 />
-      {/* <About /> */}
-      <Parallax
-        blur={10}
-        bgImage="path/to/image.jpg"
-        bgImageAlt="the cat"
-        strength={200}
-      >
-        <About2 />
-        <Skill />
-        {/* <Projects /> */}
-        <Project1 />
-        <Education />
-        <Contact />
-      </Parallax>
-      <Footer />
+    <div className="App">
+      <Hero
+        images={images}
+        isLoading={isLoading}
+        setSearch={setSearch}
+        newImages={newImages}
+      />
     </div>
   );
-}
+};
 
 export default App;
